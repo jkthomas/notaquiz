@@ -1,0 +1,6 @@
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\bin\Debug\Helpers.dll
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\bin\Debug\Helpers.pdb
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.csprojResolveAssemblyReference.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.csproj.CoreCompileInputs.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.dll
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.pdb

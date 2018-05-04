@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="491">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="200" Width="463"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="273,215,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="273,314,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
+        <Label Content="{Binding Question}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="200" Width="463"/>
+        <Button Content="{Binding AnswerA}" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
+        <Button Content="{Binding AnswerB}" HorizontalAlignment="Left" Margin="273,215,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
+        <Button Content="{Binding AnswerC}" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
+        <Button Content="{Binding AnswerD}" HorizontalAlignment="Left" Margin="273,314,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
 
     </Grid>
 </Window>

@@ -7,12 +7,12 @@ using System.Windows.Input;
 
 namespace Helpers.Commands
 {
-    public class RelayCommand : ICommand
+    public class ParameterCommand : ICommand
     {
-        private Action _action;
+        private Action<object> _action;
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
-        public RelayCommand(Action action)
+        public ParameterCommand(Action<object> action)
         {
             this._action = action;
         }
@@ -24,7 +24,7 @@ namespace Helpers.Commands
 
         public void Execute(object parameter)
         {
-            _action();
+            _action(parameter);
         }
     }
 }
