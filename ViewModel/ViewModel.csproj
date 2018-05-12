@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectsViewModels\ButtonViewModel.cs" />
+    <Compile Include="PanelViewModels\ButtonGroupViewModel.cs" />
     <Compile Include="PanelViewModels\QuestionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

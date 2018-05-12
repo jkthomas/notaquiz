@@ -102,7 +102,7 @@ namespace ViewModel.PanelViewModels
 
         public QuestionViewModel()
         {
-            this.CheckAnswerCommand = new RelayCommand(this.CheckAnswer);
+            this.CheckAnswerCommand = new ParameterCommand(this.CheckAnswer);
             this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
             //TODO: Add first or default question on creation
             this.Question = "What is 2 + 2 ?";
@@ -113,18 +113,18 @@ namespace ViewModel.PanelViewModels
             this.PropAnswer = "4";
         }
 
-        public void CheckAnswer()
+        public void CheckAnswer(object param)
         {
-
+            string userAnswer = param as string;
+            if (userAnswer == this.PropAnswer)
+            {
+                //NextQuestion()
+            }
         }
 
         public void SelectButton(object param)
         {
-            string userAnswer = param as string;
-            if(userAnswer == this.PropAnswer)
-            {
-                //NextQuestion()
-            }
+            
         }
 
         public void NextQuestion()
