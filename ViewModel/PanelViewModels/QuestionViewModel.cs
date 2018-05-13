@@ -1,11 +1,13 @@
 ﻿using Helpers.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ViewModel.ObjectsViewModels;
 
 namespace ViewModel.PanelViewModels
 {
@@ -31,61 +33,14 @@ namespace ViewModel.PanelViewModels
             }
         }
         #endregion
-        #region Answers Fields
-        private string _answerA;
-        private string _answerB;
-        private string _answerC;
-        private string _answerD;
+        #region Private fields
+
         private string _propAnswer;
+        private ObservableCollection<ButtonViewModel> _buttons;
 
-        public string AnswerA
-        {
-            get { return this._answerA; }
-            set
-            {
-                if (this._answerA == value)
-                    return;
+        #endregion
 
-                this._answerA = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(nameof(AnswerA)));
-            }
-        }
-        public string AnswerB
-        {
-            get { return this._answerB; }
-            set
-            {
-                if (this._answerB == value)
-                    return;
-
-                this._answerB = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(nameof(AnswerB)));
-            }
-        }
-        public string AnswerC
-        {
-            get { return this._answerC; }
-            set
-            {
-                if (this._answerC == value)
-                    return;
-
-                this._answerC = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(nameof(AnswerC)));
-            }
-        }
-        public string AnswerD
-        {
-            get { return this._answerD; }
-            set
-            {
-                if (this._answerD == value)
-                    return;
-
-                this._answerD = value;
-                PropertyChanged(this, new PropertyChangedEventArgs(nameof(AnswerD)));
-            }
-        }
+        #region Properties
         public string PropAnswer
         {
             get { return this._propAnswer; }
@@ -98,6 +53,19 @@ namespace ViewModel.PanelViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(nameof(PropAnswer)));
             }
         }
+
+        public ObservableCollection<ButtonViewModel> Buttons
+        {
+            get { return this._buttons; }
+            set
+            {
+                if (this._buttons == value)
+                    return;
+
+                this._buttons = value;
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(Buttons)));
+            }
+        }
         #endregion
 
         public QuestionViewModel()
@@ -106,11 +74,17 @@ namespace ViewModel.PanelViewModels
             this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
             //TODO: Add first or default question on creation
             this.Question = "What is 2 + 2 ?";
-            this.AnswerA = "2";
-            this.AnswerB = "4";
-            this.AnswerC = "5";
-            this.AnswerD = "6";
+            //this.Question = Parser.parseQuestion();
             this.PropAnswer = "4";
+            //this.PropAnswer = -||-
+            this.Buttons = new ObservableCollection<ButtonViewModel>(
+                //TODO: Initialize with converted List/Enumerable from parser
+                );
+            this.Buttons.Add(new ButtonViewModel("A"));
+            this.Buttons.Add(new ButtonViewModel("B"));
+            this.Buttons.Add(new ButtonViewModel("C"));
+            this.Buttons.Add(new ButtonViewModel("D"));
+            //this.ButtonGroupViewModel =  new ButtonGroupViewModel(Parser.something)
         }
 
         public void CheckAnswer(object param)
@@ -124,7 +98,7 @@ namespace ViewModel.PanelViewModels
 
         public void SelectButton(object param)
         {
-            
+
         }
 
         public void NextQuestion()

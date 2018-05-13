@@ -45,7 +45,8 @@ namespace ViewModel.ObjectsViewModels
 
         public ButtonViewModel(string content)
         {
-
+            this.IsEnabled = true;
+            this.Content = content;
         }
     }
 }

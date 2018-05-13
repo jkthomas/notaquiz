@@ -12,17 +12,11 @@ namespace ViewModel.PanelViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
 
-        public ButtonViewModel buttonA;
-        public ButtonViewModel buttonB;
-        public ButtonViewModel buttonC;
-        public ButtonViewModel buttonD;
+        public List<ButtonViewModel> Buttons { get; set; }
 
-        public ButtonGroupViewModel(/* xaml? */)
+        public ButtonGroupViewModel(List<ButtonViewModel> buttons/* xaml? */)
         {
-            this.buttonA.Content = "A";
-            this.buttonB.Content = "B";
-            this.buttonC.Content = "C";
-            this.buttonD.Content = "D";
+            this.Buttons = buttons;
         }
     }
 }

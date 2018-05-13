@@ -2,8 +2,8 @@ D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\ViewModel.dll
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\ViewModel.pdb
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\Helpers.dll
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\Helpers.pdb
-D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csprojResolveAssemblyReference.cache
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csproj.CoreCompileInputs.cache
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.dll
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.pdb
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csprojAssemblyReference.cache
