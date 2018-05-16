@@ -7,3 +7,5 @@ D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csproj.
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.dll
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.pdb
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\obj\Debug\ViewModel.csprojAssemblyReference.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\Entities.dll
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\ViewModel\bin\Debug\Entities.pdb

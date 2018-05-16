@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObjectsViewModels\ButtonViewModel.cs" />
-    <Compile Include="PanelViewModels\ButtonGroupViewModel.cs" />
     <Compile Include="PanelViewModels\QuestionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{d568f13b-5a42-4d32-bd45-eceaf77734c2}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{58210039-bbfe-4262-99e2-bfa4e9c0965d}</Project>
       <Name>Helpers</Name>

@@ -4,3 +4,6 @@ D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.csproj.Core
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.dll
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.pdb
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.csprojAssemblyReference.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\bin\Debug\Entities.dll
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\bin\Debug\Entities.pdb
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\Helpers\obj\Debug\Helpers.csproj.CopyComplete

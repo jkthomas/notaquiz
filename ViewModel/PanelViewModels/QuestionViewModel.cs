@@ -1,4 +1,6 @@
 ﻿using Helpers.Commands;
+using Helpers.Mappers;
+using Helpers.Parsers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ViewModel.Entities;
 using ViewModel.ObjectsViewModels;
 
 namespace ViewModel.PanelViewModels
@@ -17,7 +20,9 @@ namespace ViewModel.PanelViewModels
         public ICommand CheckAnswerCommand { get; set; }
         public ICommand SelectButtonCommand { get; set; }
 
-        //private ObservableCollection<string> _observableCollection;
+
+        private List<QuestionEntity> _questionEntities;
+        private QuestionMapper _questionMapper;
         #region Question Field
         private string _question;
         public string Question
@@ -70,21 +75,19 @@ namespace ViewModel.PanelViewModels
 
         public QuestionViewModel()
         {
+            //TODO: Mapper maps same question and answers - check for yield return in XmlReader class
+            this._questionMapper = new QuestionMapper("quiz.xml");
+            this._questionEntities = this._questionMapper.GetQuestionEntities();
             this.CheckAnswerCommand = new ParameterCommand(this.CheckAnswer);
             this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
-            //TODO: Add first or default question on creation
-            this.Question = "What is 2 + 2 ?";
-            //this.Question = Parser.parseQuestion();
-            this.PropAnswer = "4";
-            //this.PropAnswer = -||-
-            this.Buttons = new ObservableCollection<ButtonViewModel>(
-                //TODO: Initialize with converted List/Enumerable from parser
-                );
-            this.Buttons.Add(new ButtonViewModel("A"));
-            this.Buttons.Add(new ButtonViewModel("B"));
-            this.Buttons.Add(new ButtonViewModel("C"));
-            this.Buttons.Add(new ButtonViewModel("D"));
-            //this.ButtonGroupViewModel =  new ButtonGroupViewModel(Parser.something)
+
+            this.Question = this._questionEntities.First().Content;
+            this.PropAnswer = this._questionEntities.First().Answers.Find(answer => answer.IsCorrect == true).Content;
+            this.Buttons = new ObservableCollection<ButtonViewModel>();
+            foreach (var answer in _questionEntities.First().Answers)
+            {
+                this.Buttons.Add(new ButtonViewModel(answer.Content));
+            }
         }
 
         public void CheckAnswer(object param)

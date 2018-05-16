@@ -8,3 +8,13 @@ C:\Users\Michal\source\repos\notaquiz\QuizCreator\QuizCreator\obj\Debug\QuizCrea
 C:\Users\Michal\source\repos\notaquiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.csproj.CoreCompileInputs.cache
 C:\Users\Michal\source\repos\notaquiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.exe
 C:\Users\Michal\source\repos\notaquiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.pdb
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\bin\Debug\QuizCreator.exe.config
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\bin\Debug\QuizCreator.exe
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\bin\Debug\QuizCreator.pdb
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.csprojAssemblyReference.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.Form1.resources
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.Properties.Resources.resources
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.csproj.GenerateResource.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.csproj.CoreCompileInputs.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.exe
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\QuizCreator\QuizCreator\obj\Debug\QuizCreator.pdb

@@ -18,3 +18,5 @@ D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\obj\Debug\GUI.exe
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\obj\Debug\GUI.pdb
 D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\bin\Debug\Entities.dll
+D:\Aplikacje\VisualStudioProjects\NotAQuiz\GUI\bin\Debug\Entities.pdb
