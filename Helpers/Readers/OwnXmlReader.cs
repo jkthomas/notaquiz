@@ -4,36 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using ViewModel.Entities;
 
-namespace Helpers.Parsers
+namespace Helpers.Readers
 {
-    public class XmlReader
+    public class OwnXmlReader : OwnXmlReaderBase, IOwnXmlReader
     {
         private string _filename;
-        public XmlReader(string filename)
+        public OwnXmlReader(string filename) : base (filename)
         {
             this._filename = filename;
         }
-        private XmlNode GetQuestionsRootNode()
+
+        public XmlNode GetQuestionsRootNode()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(this._filename);
             XmlNode node = doc.DocumentElement.SelectSingleNode("/quiz/questions");
-            
+
             return node;
         }
 
         public IEnumerable<XmlNode> GetQuestionNodes()
         {
-            foreach(XmlNode question in this.GetQuestionsRootNode().ChildNodes){
+            foreach (XmlNode question in this.GetQuestionsRootNode().ChildNodes)
+            {
                 yield return question;
             }
         }
 
         public IEnumerable<XmlNode> GetAnswerNodes(XmlNode node)
         {
-            XmlNode answers = node.SelectSingleNode("//answers");
+            //XmlNode answers = node.SelectSingleNode("//answers");
+            XmlNode answers = node.LastChild;
             foreach (XmlNode answer in answers.ChildNodes)
             {
                 yield return answer;
@@ -42,7 +44,8 @@ namespace Helpers.Parsers
 
         public string GetQuestionContent(XmlNode node)
         {
-            XmlNode content = node.SelectSingleNode("//content//pl");
+            //XmlNode content = node.SelectSingleNode("//content");
+            XmlNode content = node.FirstChild;
             return content.InnerText;
         }
 

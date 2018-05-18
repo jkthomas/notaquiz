@@ -1,4 +1,4 @@
-﻿using Helpers.Parsers;
+﻿using Helpers.Readers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +12,12 @@ namespace Helpers.Mappers
     public class QuestionMapper
     {
         public List<QuestionEntity> QuestionEntities { get; set; }
-        public Parsers.XmlReader Reader { get; set; }
+        public IOwnXmlReader Reader { get; set; }
 
         public QuestionMapper(string filename)
         {
             this.QuestionEntities = new List<QuestionEntity>();
-            this.Reader = new Parsers.XmlReader(filename);
+            this.Reader = new OwnXmlReader(filename);
         }
 
         public List<QuestionEntity> GetQuestionEntities()

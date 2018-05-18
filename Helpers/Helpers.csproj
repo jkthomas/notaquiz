@@ -43,7 +43,9 @@
     <Compile Include="Commands\ParameterCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Mappers\QuestionMapper.cs" />
-    <Compile Include="Parsers\XmlReader.cs" />
+    <Compile Include="Readers\IOwnXmlReader.cs" />
+    <Compile Include="Readers\OwnXmlReader.cs" />
+    <Compile Include="Readers\OwnXmlReaderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
