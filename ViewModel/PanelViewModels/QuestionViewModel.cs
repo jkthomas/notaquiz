@@ -43,6 +43,9 @@ namespace ViewModel.PanelViewModels
 
         private string _propAnswer;
         private ObservableCollection<ButtonViewModel> _buttons;
+        private int _questionsAmount;
+        private int _questionsProp;
+        private int _questionNumber;
 
         #endregion
 
@@ -72,6 +75,43 @@ namespace ViewModel.PanelViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(nameof(Buttons)));
             }
         }
+        public int QuestionsAmount
+        {
+            get { return this._questionsAmount; }
+            set
+            {
+                if (this._questionsAmount == value)
+                    return;
+
+                this._questionsAmount = value;
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(QuestionsAmount)));
+            }
+        }
+        public int QuestionNumber
+        {
+            get { return this._questionNumber; }
+            set
+            {
+                if (this._questionNumber == value)
+                    return;
+
+                this._questionNumber = value;
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(QuestionNumber)));
+            }
+        }
+        public int QuestionsProp
+        {
+            get { return this._questionsProp; }
+            set
+            {
+                if (this._questionsProp == value)
+                    return;
+
+                this._questionsProp = value;
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(QuestionsProp)));
+            }
+        }
+
         #endregion
 
         public QuestionViewModel()
@@ -88,6 +128,9 @@ namespace ViewModel.PanelViewModels
             {
                 this.Buttons.Add(new ButtonViewModel(answer.Content));
             }
+            this.QuestionsAmount = _questionEntities.Count;
+            this.QuestionsProp = 0;
+            this.QuestionNumber = 1;
         }
 
         public void CheckAnswer(object param)
@@ -105,6 +148,7 @@ namespace ViewModel.PanelViewModels
             if (userAnswer.Equals(this.PropAnswer))
             {
                 MessageBox.Show("Good answer");
+                this.QuestionsProp += 1;
             } else
             {
                 MessageBox.Show("Bad answer!!!");
@@ -114,6 +158,7 @@ namespace ViewModel.PanelViewModels
 
         public void NextQuestion()
         {
+            this.QuestionNumber += 1;
             int index = this._questionEntities.FindIndex(q => q.Content == this.Question);
             if(++index > _questionEntities.Count)
             {

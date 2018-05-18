@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="491">
+        Title="MainWindow" Height="522" Width="491">
     <Grid Margin="0,253,0,0">
         <Label Content="{Binding Question}" HorizontalAlignment="Left" Margin="10,-247,0,0" VerticalAlignment="Top" Height="200" Width="463"/>
         <ItemsControl x:Name ="Buttons" ItemsSource="{Binding Buttons}" Margin="0,-83,0,0" Height="250">
@@ -15,6 +15,11 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
+        <Label Content="Questions guessed right: " HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="{Binding QuestionsProp}" HorizontalAlignment="Left" Margin="142,204,0,0" VerticalAlignment="Top" Width="20" Height="26"/>
+        <Label Content="/" HorizontalAlignment="Left" Margin="162,204,0,0" VerticalAlignment="Top" Width="20"/>
+        <Label Content="{Binding QuestionsAmount}" HorizontalAlignment="Left" Margin="182,204,0,0" VerticalAlignment="Top" Width="20" Height="26"/>
+        <Label Content="Question number: " HorizontalAlignment="Left" Margin="331,203,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="{Binding QuestionNumber}" HorizontalAlignment="Left" Margin="438,203,0,0" VerticalAlignment="Top" Width="20" Height="26"/>
     </Grid>
 </Window>
