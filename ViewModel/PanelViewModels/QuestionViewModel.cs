@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using ViewModel.Entities;
 using ViewModel.ObjectsViewModels;
@@ -75,7 +76,6 @@ namespace ViewModel.PanelViewModels
 
         public QuestionViewModel()
         {
-            //TODO: Mapper maps same question and answers - check for yield return in XmlReader class
             this._questionMapper = new QuestionMapper("quiz.xml");
             this._questionEntities = this._questionMapper.GetQuestionEntities();
             this.CheckAnswerCommand = new ParameterCommand(this.CheckAnswer);
@@ -101,12 +101,31 @@ namespace ViewModel.PanelViewModels
 
         public void SelectButton(object param)
         {
-
+            string userAnswer = param as string;
+            if (userAnswer.Equals(this.PropAnswer))
+            {
+                MessageBox.Show("Good answer");
+            } else
+            {
+                MessageBox.Show("Bad answer!!!");
+            }
+            NextQuestion();
         }
 
         public void NextQuestion()
         {
-
+            int index = this._questionEntities.FindIndex(q => q.Content == this.Question);
+            if(++index > _questionEntities.Count)
+            {
+                //TODO: Manage end of quiz, add answers counter
+            }
+            this.Question = this._questionEntities[index].Content;
+            this.PropAnswer = this._questionEntities[index].Answers.Find(answer => answer.IsCorrect == true).Content;
+            this.Buttons = new ObservableCollection<ButtonViewModel>();
+            foreach (var answer in _questionEntities[index].Answers)
+            {
+                this.Buttons.Add(new ButtonViewModel(answer.Content));
+            }
         }
     }
 }
