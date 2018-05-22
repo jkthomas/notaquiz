@@ -9,12 +9,12 @@ using System.Xml;
 
 namespace Helpers.Mappers
 {
-    public class QuestionMapper
+    public class QuestionMapper : QuestionMapperBase, IQuestionMapper<QuestionEntity, XmlNode>
     {
         public List<QuestionEntity> QuestionEntities { get; set; }
         public IOwnXmlReader Reader { get; set; }
 
-        public QuestionMapper(string filename)
+        public QuestionMapper(string filename) : base(filename)
         {
             this.QuestionEntities = new List<QuestionEntity>();
             this.Reader = new OwnXmlReader(filename);
@@ -45,7 +45,7 @@ namespace Helpers.Mappers
 
             questionEntity.Content = Reader.GetQuestionContent(question);
             questionEntity.Answers = answerEntities;
-            this.QuestionEntities.Add(questionEntity); 
+            this.QuestionEntities.Add(questionEntity);
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml;
 using ViewModel.Entities;
 using ViewModel.ObjectsViewModels;
 
@@ -23,7 +24,7 @@ namespace ViewModel.PanelViewModels
 
 
         private List<QuestionEntity> _questionEntities;
-        private QuestionMapper _questionMapper;
+        private IQuestionMapper<QuestionEntity, XmlNode> _questionMapper;
         #region Question Field
         private string _question;
         public string Question
@@ -116,13 +117,14 @@ namespace ViewModel.PanelViewModels
 
         public QuestionViewModel()
         {
+            this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
             this._questionMapper = new QuestionMapper("quiz.xml");
             this._questionEntities = this._questionMapper.GetQuestionEntities();
-            this.CheckAnswerCommand = new ParameterCommand(this.CheckAnswer);
-            this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
 
             this.Question = this._questionEntities.First().Content;
             this.PropAnswer = this._questionEntities.First().Answers.Find(answer => answer.IsCorrect == true).Content;
+
+
             this.Buttons = new ObservableCollection<ButtonViewModel>();
             foreach (var answer in _questionEntities.First().Answers)
             {
@@ -131,15 +133,6 @@ namespace ViewModel.PanelViewModels
             this.QuestionsAmount = _questionEntities.Count;
             this.QuestionsProp = 0;
             this.QuestionNumber = 1;
-        }
-
-        public void CheckAnswer(object param)
-        {
-            string userAnswer = param as string;
-            if (userAnswer == this.PropAnswer)
-            {
-                //NextQuestion()
-            }
         }
 
         public void SelectButton(object param)
@@ -160,10 +153,13 @@ namespace ViewModel.PanelViewModels
         {
             this.QuestionNumber += 1;
             int index = this._questionEntities.FindIndex(q => q.Content == this.Question);
-            if(++index > _questionEntities.Count)
+            if((index+1) == _questionEntities.Count)
             {
-                //TODO: Manage end of quiz, add answers counter
+                string endInfo = "Quiz results: " + "You guessed " + this.QuestionsProp + " questions right, out of " + this.QuestionsAmount + " questions!";
+                MessageBox.Show(endInfo, "End of the game", MessageBoxButton.OK);
+                Environment.Exit(0);
             }
+            index += 1;
             this.Question = this._questionEntities[index].Content;
             this.PropAnswer = this._questionEntities[index].Answers.Find(answer => answer.IsCorrect == true).Content;
             this.Buttons = new ObservableCollection<ButtonViewModel>();
