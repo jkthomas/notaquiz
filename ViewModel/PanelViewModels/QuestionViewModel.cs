@@ -1,5 +1,6 @@
 ﻿using Helpers.Commands;
 using Helpers.Mappers;
+using Helpers.Placeholders;
 using Helpers.Readers;
 using System;
 using System.Collections.Generic;
@@ -140,25 +141,25 @@ namespace ViewModel.PanelViewModels
             string userAnswer = param as string;
             if (userAnswer.Equals(this.PropAnswer))
             {
-                MessageBox.Show("Good answer");
+                MessageBox.Show(Messenger.GoodAnswer());
                 this.QuestionsProp += 1;
             } else
             {
-                MessageBox.Show("Bad answer!!!");
+                MessageBox.Show(Messenger.BadAnswer());
             }
             NextQuestion();
         }
 
         public void NextQuestion()
         {
-            this.QuestionNumber += 1;
-            int index = this._questionEntities.FindIndex(q => q.Content == this.Question);
-            if((index+1) == _questionEntities.Count)
+            if(QuestionNumber == _questionEntities.Count)
             {
-                string endInfo = "Quiz results: " + "You guessed " + this.QuestionsProp + " questions right, out of " + this.QuestionsAmount + " questions!";
-                MessageBox.Show(endInfo, "End of the game", MessageBoxButton.OK);
+                string endInfo = Messenger.Results(this.QuestionsProp.ToString(), this.QuestionsAmount.ToString());
+                MessageBox.Show(endInfo, Messenger.End(), MessageBoxButton.OK);
                 Environment.Exit(0);
             }
+            int index = QuestionNumber - 1;
+            this.QuestionNumber += 1;
             index += 1;
             this.Question = this._questionEntities[index].Content;
             this.PropAnswer = this._questionEntities[index].Answers.Find(answer => answer.IsCorrect == true).Content;
