@@ -119,8 +119,16 @@ namespace ViewModel.PanelViewModels
         public QuestionViewModel()
         {
             this.SelectButtonCommand = new ParameterCommand(this.SelectButton);
-            this._questionMapper = new QuestionMapper("quiz.xml");
-            this._questionEntities = this._questionMapper.GetQuestionEntities();
+            try
+            {
+                this._questionMapper = new QuestionMapper("quiz.xml");
+                this._questionEntities = this._questionMapper.GetQuestionEntities();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("There was an error opening quiz questions: " + e.Message);
+            }
+
 
             this.Question = this._questionEntities.First().Content;
             this.PropAnswer = this._questionEntities.First().Answers.Find(answer => answer.IsCorrect == true).Content;
@@ -143,7 +151,8 @@ namespace ViewModel.PanelViewModels
             {
                 MessageBox.Show(Messenger.GoodAnswer());
                 this.QuestionsProp += 1;
-            } else
+            }
+            else
             {
                 MessageBox.Show(Messenger.BadAnswer());
             }
@@ -152,7 +161,7 @@ namespace ViewModel.PanelViewModels
 
         public void NextQuestion()
         {
-            if(QuestionNumber == _questionEntities.Count)
+            if (QuestionNumber == _questionEntities.Count)
             {
                 string endInfo = Messenger.Results(this.QuestionsProp.ToString(), this.QuestionsAmount.ToString());
                 MessageBox.Show(endInfo, Messenger.End(), MessageBoxButton.OK);
@@ -161,8 +170,16 @@ namespace ViewModel.PanelViewModels
             int index = QuestionNumber - 1;
             this.QuestionNumber += 1;
             index += 1;
-            this.Question = this._questionEntities[index].Content;
-            this.PropAnswer = this._questionEntities[index].Answers.Find(answer => answer.IsCorrect == true).Content;
+            try
+            {
+                this.Question = this._questionEntities[index].Content;
+                this.PropAnswer = this._questionEntities[index].Answers.Find(answer => answer.IsCorrect == true).Content;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("There was an error with question/answer entities: " + e.Message);
+            }
+
             this.Buttons = new ObservableCollection<ButtonViewModel>();
             foreach (var answer in _questionEntities[index].Answers)
             {
